@@ -1,4 +1,22 @@
 {
   "rooms": [
+    {
+      "id": 1,
+      "name": "Test room",
+      "password": "testPass",
+      "users": [
+        ["Max", 0]
+      ],
+      "tasks": [
+        {
+          "title": "task title",
+          "description": "task desc",
+          "value": 5,
+          "achieved": [
+            "Max"
+          ]
+        }
+      ]
+    }
   ]
 }
