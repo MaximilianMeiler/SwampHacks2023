@@ -13,10 +13,19 @@
           "description": "task desc",
           "value": 5,
           "achieved": [
-            "Max"
+            " Max"
+          ]
+        },
+        {
+          "title": "high-worth task",
+          "description": "many points",
+          "value": 15,
+          "achieved": [
           ]
         }
       ]
     }
+
+
   ]
 }

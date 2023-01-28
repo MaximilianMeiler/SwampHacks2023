@@ -1,0 +1,24 @@
+.navList {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: var(--clr-4);
+}
+
+.navItem {
+  height: 100%;
+  padding: 1em;
+  color: var(--clr-light);
+}
+
+.navItem:hover {
+  color: var(--clr-dark);
+  background-color: var(--clr-accent);
+}
+
+.navLink {
+  color: inherit;
+  font-weight: bold;
+}
