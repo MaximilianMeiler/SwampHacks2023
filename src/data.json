@@ -1,11 +1,18 @@
 {
   "rooms": [
     {
-      "id": 1,
+      "id": 0,
       "name": "Test room",
       "password": "testPass",
       "users": [
-        ["Max", 0]
+        [
+          "Max",
+          250
+        ],
+        [
+          "Sai",
+          75
+        ]
       ],
       "tasks": [
         {
@@ -13,7 +20,20 @@
           "description": "task desc",
           "value": 5,
           "achieved": [
-            " Max"
+            "Max",
+            "Max",
+            "Max",
+            "Max",
+            "Max",
+            "Max",
+            "Max",
+            "Max",
+            "Max",
+            "Sai",
+            "Sai",
+            "Sai",
+            "Sai",
+            "Sai"
           ]
         },
         {
@@ -21,11 +41,25 @@
           "description": "many points",
           "value": 15,
           "achieved": [
+            "Max",
+            "Max",
+            "Max",
+            "Max",
+            "Max",
+            "Max",
+            "Max",
+            "Max",
+            "Max",
+            "Max",
+            "Max",
+            "Max",
+            "Max",
+            "Sai",
+            "Sai",
+            "Sai"
           ]
         }
       ]
     }
-
-
   ]
 }

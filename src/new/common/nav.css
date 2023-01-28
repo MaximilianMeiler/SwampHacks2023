@@ -16,6 +16,7 @@
 .navItem:hover {
   color: var(--clr-dark);
   background-color: var(--clr-accent);
+  cursor: pointer;
 }
 
 .navLink {

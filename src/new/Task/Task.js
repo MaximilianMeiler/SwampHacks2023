@@ -1,24 +1,29 @@
 import React from 'react'
 import {FaTrashAlt} from 'react-icons/fa';
-import {useEffect, useState} from "react";
+import './Task.css';
 
 const Task = ({task, handleCheck, handleDelete}) => {
-
   return (
-    <div>
-        <label
-            onDoubleClick={() => handleCheck(task.id)}
-        >Task Name: <strong>{task.title}</strong> (Weight = {task.value})</label>
-        <div className = "containerP">
-            <p className = "descrip">{task.description}</p>
-        </div>
+    <li class="taskContainer">
         
-        <FaTrashAlt
-            onClick={() => handleDelete(task.id)}
-            role = "button"
-            tabIndex="0"
-        />
-    </div>
+        <div class="taskInfo">
+            <FaTrashAlt
+                class="trash"
+                onClick={() => handleDelete(task.id)}
+                role = "button"
+                tabIndex="0"
+            />
+            <label id="title">
+                {task.title}
+            </label>
+            <p id="points">
+                Points: {task.value}
+            </p>
+            <p id="description">
+                {task.description}
+            </p>
+        </div>
+    </li>
   )
 }
 

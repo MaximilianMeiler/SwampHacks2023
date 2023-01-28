@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from "axios";
+import './Home.css';
 import {useEffect, useState} from "react";
 
 const client = axios.create({
@@ -7,7 +8,7 @@ const client = axios.create({
 });
 
 const Home = () => {
-  const [name, setName] = useState(localStorage.getItem("name"));
+  const [name, setName] = useState(localStorage.getItem("name") === null ? "" : localStorage.getItem("name"));
   const [rooms, setRooms] = useState([]);
   const [flag, setFlag] = useState(0);
 
@@ -54,16 +55,15 @@ const Home = () => {
       //setRooms(null);
       setFlag(flag + 1);
     })
-  }
-
+  };
   return (
     <div>
+    { name.length > 0 ? 
+      <div>
       <p>Hello, {name}</p>
-      <input type="text" id="nameBox"/>
       <button onClick={() => {
-        localStorage.setItem("name", document.getElementById("nameBox").value);
-        setName(localStorage.getItem("name"));
-      }}>Submit Name</button>
+        setName("");
+      }}>Change Name</button>
 
       <p>Your rooms:</p>
       <ul>
@@ -91,9 +91,7 @@ const Home = () => {
           <>
             <h1 style={{display: 'inline'}}>{room.name}</h1>
             <button style={{display: 'inline', marginLeft: "100px"}}
-              onClick={() => {
-                updateRoomUser(room.id, localStorage.getItem("name"));
-                }
+              onClick={() => {}
               }
             >Join room</button>
             <p></p>
@@ -101,11 +99,19 @@ const Home = () => {
           : <></>
         ))}
       </ul>
-      {/* <input type="text" id="roomBox" placeholder='Room name'/>
-      <input type="text" id="passBox" placeholder='Room password'/>
-      <button onClick={() => createRoom(document.getElementById("roomBox").value, document.getElementById("passBox").value)}>Create room</button>
-      <button onClick={() => deleteRoom(document.getElementById("roomBox").value, document.getElementById("passBox").value)}>Delete Room</button> */}
-    </div>
+      </div>
+  :  <>
+  <div class="welcome">Welcome to Climbr!</div>
+  <form action="">
+    <input type="text" id="nameBox" placeholder='Type your name!'/>
+    <button type="submit" onClick={() => {
+      localStorage.setItem("name", document.getElementById("nameBox").value);
+      setName(localStorage.getItem("name"));
+    }}>Submit Name</button>
+  </form>
+  </>
+  }
+  </div>
   )
 }
 

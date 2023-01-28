@@ -1,7 +1,7 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
@@ -24,4 +24,45 @@ body {
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+input, textarea {
+  border: 1px solid var(--clr-4);
+  border-radius: 0;
+  padding: 12px;
+  font-family: inherit;
+  background-color: var(--clr-light);
+  outline: none;
+  font-size: inherit;
+}
+
+textarea {
+  resize: none;
+  height: 160px;
+}
+
+button {
+  appearance: none;
+  border: 2px solid var(--clr-accent);
+  cursor: pointer;
+  align-self: center;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 12px;
+  font-size: inherit;
+  font-family: inherit;
+  margin:0;
+  background-color: var(--clr-accent);
+  color: var(--clr-dark);
+  transition: 300ms ease-in-out;
+}
+
+button:hover {
+  background-color: transparent;
+  color: var(--clr-light);
+}
+
+.container {
+  padding-top: 50px;
 }

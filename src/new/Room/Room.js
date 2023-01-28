@@ -9,25 +9,26 @@ import Goal from "./Goal";
 const Room = () => {
   const {id} = useParams();
 
-  const client = axios.create({
-    baseURL: `http://localhost:3500/rooms/${id}`
-  });
 
-  const [rooms, setRooms] = useState([]);
+
   const [flag, setFlag] = useState(0);
-  const [room, setRoom] = useState({})
+  const [room, setRoom] = useState(null)
   
+
   useEffect(() => {
-    client.get()
+    axios.get(`http://localhost:3500/rooms/${id}`)
     .then((res) => {
-      setRoom(res.data);
+      setRoom(res.data)
     })
   }, [flag]);
-
+  console.log(room)
+  
 
   return (
-    <body>
-      <Link to="/">{id}</Link>
+    (room === null) ? 
+      <div>Room not found</div> :
+
+    <div> 
       <ul>
         {room.users.map((user) => (
           <p>{user[0]} has {user[1]} points</p>
@@ -35,10 +36,10 @@ const Room = () => {
       </ul>
       <ul>
         {room.tasks.map((task) => (
-          <Goal task={task}/>
+          <Goal id={id} room={room} flag={flag} setFlag={setFlag} task={task}/>
         ))}
       </ul>
-    </body>
+    </div>
   )
 }
 
