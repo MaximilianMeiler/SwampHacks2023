@@ -2,9 +2,11 @@ import React from 'react'
 import axios from "axios";
 import './Home.css';
 import {useEffect, useState} from "react";
+import {Link} from "react-router-dom"
+
 
 const client = axios.create({
-  baseURL: "http://localhost:3500/rooms" 
+  baseURL: "http://localhost:3500/rooms"
 });
 
 const Home = () => {
@@ -13,10 +15,8 @@ const Home = () => {
   const [flag, setFlag] = useState(0);
 
   useEffect(() => {
-    client.get()
-    .then((res) => {
-      setRooms(res.data);
-    })
+    client.get("")
+    .then((res) => setRooms(res.data));
   }, [flag]); //no dependency here allows commenting of request result actions
      //add time-polling solution here
 
@@ -35,12 +35,13 @@ const Home = () => {
 
   function updateRoomUser(paramId, user) {
     const room = rooms.find(room => room.id === paramId);
-    const userIndex = room.users.indexOf(user);
+    const userIndex = room.users.findIndex((u) => u[0] === user);
     client.put(`/${paramId}`, {
       id: paramId,
       name: room.name,
       password: room.password,
-      users: userIndex === -1 ? room.users.concat([user]) : room.users.filter((u) => u !== user)
+      users: userIndex === -1 ? room.users.concat([[user, 0]]) : room.users.filter((u) => u[0] !== user),
+      tasks: room.tasks
     })
     .then((res) => {
       //const myRoom = rooms.findIndex(room => room.id === paramId)
@@ -68,40 +69,26 @@ const Home = () => {
       <p>Your rooms:</p>
       <ul>
         {rooms.map((room) => (
-          room.users.indexOf(localStorage.getItem("name")) >= 0 ?
-          <>
+          room.users.findIndex((user) => user[0] ===localStorage.getItem("name")) >= 0 ?
+          <div>
             <h1 style={{display: 'inline'}}>{room.name}</h1>
-            <button style={{display: 'inline', marginLeft: "100px"}}
+            <Link className="buttonLike" to={`/${room.id}`}>Go to Room</Link>
+            <button 
               onClick={() => {
                 updateRoomUser(room.id, localStorage.getItem("name"));
                 }
               }
             >Leave room</button>
-          </>
+          </div>
           : <></>
-        ))}
+            ))}
       </ul>
       {
         (rooms.length === 0) ? <p>No rooms!</p> : <></>
       }
-      <p>Other rooms:</p>
-      <ul>
-        {rooms.map((room) => (
-          room.users.indexOf(localStorage.getItem("name")) < 0 ?
-          <>
-            <h1 style={{display: 'inline'}}>{room.name}</h1>
-            <button style={{display: 'inline', marginLeft: "100px"}}
-              onClick={() => {}
-              }
-            >Join room</button>
-            <p></p>
-          </>
-          : <></>
-        ))}
-      </ul>
       </div>
   :  <>
-  <div class="welcome">Welcome to Climbr!</div>
+  <div className="welcome">Welcome to Climbr!</div>
   <form action="">
     <input type="text" id="nameBox" placeholder='Type your name!'/>
     <button type="submit" onClick={() => {

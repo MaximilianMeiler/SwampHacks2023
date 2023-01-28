@@ -33,8 +33,11 @@ const Goal = ({id, room, flag, setFlag, task}) => {
 
   return (
     <div>
-      <div>{task.name}</div>
-      <button onClick={() => completeTask()}>Done!</button>
+      <p></p>
+      <div>{task.title}</div>
+      <div>Points: {task.value}</div>
+      <div>{task.description}</div>
+      <button onClick={() => completeTask()}></button>
     </div>
   )
 }

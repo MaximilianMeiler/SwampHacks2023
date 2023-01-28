@@ -3,11 +3,10 @@ import Home from './new/Home/Home';
 import Room from "./new/Room/Room.js";
 import MakeGroup from './new/MakeGroup/MakeGroup.js';
 import Nav from './new/common/nav';
-import {useEffect, useState} from "react";
 import {Route, Routes} from "react-router-dom"
 
 function App() {
-  
+
   return (
     <div className="App">
       <Nav/>

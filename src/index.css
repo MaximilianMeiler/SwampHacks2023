@@ -41,7 +41,7 @@ textarea {
   height: 160px;
 }
 
-button {
+.buttonLike, button {
   appearance: none;
   border: 2px solid var(--clr-accent);
   cursor: pointer;
@@ -52,13 +52,13 @@ button {
   padding: 12px;
   font-size: inherit;
   font-family: inherit;
-  margin:0;
+  margin: 0;
   background-color: var(--clr-accent);
   color: var(--clr-dark);
-  transition: 300ms ease-in-out;
+  transition: 200ms ease-in-out;
 }
 
-button:hover {
+.buttonLike:hover, button:hover {
   background-color: transparent;
   color: var(--clr-light);
 }

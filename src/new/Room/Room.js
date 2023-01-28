@@ -1,16 +1,13 @@
 import React from 'react';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
-import './room.css';
+import './Room.css';
 import { useEffect, useState } from 'react';
 import Goal from "./Goal";
 
 
 const Room = () => {
   const {id} = useParams();
-
-
-
   const [flag, setFlag] = useState(0);
   const [room, setRoom] = useState(null)
   
@@ -27,13 +24,20 @@ const Room = () => {
   return (
     (room === null) ? 
       <div>Room not found</div> :
-
-    <div> 
-      <ul>
+    <div className="room">
+      <table className="leaderboard">
+        <tr>
+          <th>Name</th>
+          <th>Points</th>
+        </tr>
         {room.users.map((user) => (
-          <p>{user[0]} has {user[1]} points</p>
+          <tr>
+            <td>{user[0]}</td>
+            <td>{user[1]}</td>
+          </tr>
+          /* <li>{user[0]} has {user[1]} points</li> */
         ))}
-      </ul>
+      </table>
       <ul>
         {room.tasks.map((task) => (
           <Goal id={id} room={room} flag={flag} setFlag={setFlag} task={task}/>

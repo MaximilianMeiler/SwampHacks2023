@@ -6,10 +6,6 @@
       "password": "testPass",
       "users": [
         [
-          "Max",
-          250
-        ],
-        [
           "Sai",
           75
         ]
@@ -21,20 +17,9 @@
           "value": 5,
           "achieved": [
             "Max",
-            "Max",
-            "Max",
-            "Max",
-            "Max",
-            "Max",
-            "Max",
-            "Max",
-            "Max",
             "Sai",
-            "Sai",
-            "Sai",
-            "Sai",
-            "Sai"
-          ]
+          ],
+          "redo": true
         },
         {
           "title": "high-worth task",
@@ -42,22 +27,9 @@
           "value": 15,
           "achieved": [
             "Max",
-            "Max",
-            "Max",
-            "Max",
-            "Max",
-            "Max",
-            "Max",
-            "Max",
-            "Max",
-            "Max",
-            "Max",
-            "Max",
-            "Max",
             "Sai",
-            "Sai",
-            "Sai"
-          ]
+          ],
+          "redo": false
         }
       ]
     }

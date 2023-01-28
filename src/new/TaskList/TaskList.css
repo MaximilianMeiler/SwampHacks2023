@@ -36,9 +36,11 @@ ul {
   display: flex;
   width: 50%;
 }
+
 .form {
   display: flex;
   align-items: center;
   width: 100%;  
   flex-direction: column;
+  margin-top: 75px;
 }
