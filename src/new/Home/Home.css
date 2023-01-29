@@ -2,6 +2,13 @@
   font-size: 48px;
 }
 
+.homeContainer {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+  
+}
+
 form {
   margin-top:50px;
 }
@@ -30,6 +37,10 @@ form {
   display: grid;
   grid-template-columns: 400px 400px;
   gap: 42px;
+  background-color: var(--clr-accent);
+  padding: 100px;
+  border-radius: 3000px;
+  margin-bottom: 50px;
 }
 .roomItem {
   display: block;
@@ -37,6 +48,10 @@ form {
   padding: 30px;
   border-radius: 25px;
   box-shadow: 2px 2px 2px var(--clr-4);
+  transition: 75ms ease-in-out;
+}
+.roomItem:hover {
+  background: #4A4D46;
 }
 .roomName {
   color: var(--clr-light);

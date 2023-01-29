@@ -3,6 +3,10 @@
   background-color: var(--clr-4);
   padding: 30px;
   border-radius: 25px;
+  transition: 50ms ease-in-out;
+}
+.goalContainer:hover {
+  background-color: #4A4D46;
 }
 .taskComplete {
   display: flex;
@@ -12,6 +16,9 @@
   font-weight: bold;
   background-color: #55A65E;
   height: 190px;
+}
+.taskComplete:hover {
+  background-color: #57BD80;
 }
 button {
   margin-top: 10px;

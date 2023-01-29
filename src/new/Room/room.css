@@ -1,5 +1,5 @@
 .room {
-    width: 50%;
+    width: 800px;
     margin: auto;
 }
 
@@ -8,9 +8,64 @@
 }
 
 .leaderboard {
+    display: flex;
+    width: 800px;
+}
+
+.mountain {
+    width: 550px; /*540*/
+    height: 305px; /*270*/
+}
+.mountain div {
+    position: absolute;
+}
+.mountain img {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+.char {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    color: black;
+    justify-content: center;
+    align-items: center;
+    animation: example ease-in-out infinite;
+    /**/
+    background-color: wheat;
+}
+.char::before {
+    display: block;
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border-radius: 50px;
+    content:''; 
+    transition: 0.25s;
+    left: 25px;
+    top: 25px;
+}
+.char.focused::before {
+    transform: translateX(-37.5px) translateY(-37.5px);
+    width: 75px;
+    height: 75px;
+    background-color: rgba(255,255,255,0.5);
+}
+.char div {
+    margin: auto;
+    cursor: default;
+    font-size: 14px;
+}
+
+.roomTable {
     border-spacing: 10px;
-    margin: auto auto 30px auto;
-    margin-bottom: 30px;
+    margin-bottom: auto;
+    width: 250px;
 }
 
 table {
@@ -22,17 +77,23 @@ td, th {
     border: 1px solid var(--clr-light);
     padding: 10px;
 }
+.winner {
+    background-color: #565546;
+}
 
-tr:nth-child(even) {
+tr:hover {
     background-color: var(--clr-accent);
 }
-tr:nth-child(odd) {
+tr {
     
     background-color: var(--clr-4);
 }
+tr.focused {
+    background-color: var(--clr-accent);
+}
 
 .tableHeader {
-
+    
 }
 
 .taskList {
@@ -58,6 +119,9 @@ tr:nth-child(odd) {
     color: var(--clr-light);
 }
 
-.winner {
-    color: #F28163;
+
+@keyframes example {
+    0% {transform: translateY(2px);}
+    50% {transform: translateY(-2px);}
+    100% {transform: translateY(2px);}
 }

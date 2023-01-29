@@ -3,16 +3,25 @@
   height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 350px;
   background-color: var(--clr-4);
   margin: 0;
   padding: 0;
 }
-
+.navImg {
+  width: 20px;
+  margin-right: 4px;
+}
 .navItem {
   height: 100%;
-  padding: 1em;
   color: var(--clr-light);
+}
+.navItem.b {
+  width: 150px;
+}
+#navName {
+  width: auto;
 }
 
 .navItem:hover {
@@ -22,6 +31,9 @@
 }
 
 .navLink {
+  display: block;
+  height: 100%;
+  padding: 1em;
   color: inherit;
   font-weight: bold;
 }

@@ -3,26 +3,104 @@
     {
       "id": "kvrk1lf",
       "name": "",
-      "users": [
-        [
-          "Max",
-          0
-        ]
-      ],
+      "users": [],
       "tasks": [],
       "goal": ""
     },
     {
       "id": "2kfa0leh",
       "name": "k",
+      "users": [],
+      "tasks": [],
+      "goal": "7"
+    },
+    {
+      "id": "axzzhrc",
+      "name": "Heon's Group",
       "users": [
         [
           "Max",
-          0
+          130
+        ],
+        [
+          "axzzhrc",
+          110
+        ],
+        [
+          "Han",
+          100
+        ],
+        [
+          "John",
+          80
+        ],
+        [
+          "ABCABC",
+          60
+        ],
+        [
+          "axzzhrcddf",
+          50
+        ],
+        [
+          "ffdfsd",
+          30
         ]
       ],
-      "tasks": [],
-      "goal": "7"
+      "goal": "50",
+      "tasks": [
+        {
+          "title": "Run!",
+          "description": "Run!",
+          "value": 10,
+          "achieved": [],
+          "redo": true
+        },
+        {
+          "title": "Jump!",
+          "description": "Run!",
+          "value": 10,
+          "achieved": [],
+          "redo": true
+        },
+        {
+          "title": "Project 1",
+          "description": "Project for Computer Science Club",
+          "value": 30,
+          "achieved": [
+            "Max"
+          ],
+          "redo": false
+        }
+      ]
+    },
+    {
+      "id": "e6m5a4c",
+      "name": "Test 2",
+      "users": [
+        [
+          "e6m5a4c",
+          312
+        ],
+        [
+          "axzzhrcddf",
+          150
+        ],
+        [
+          "asdffda",
+          54
+        ]
+      ],
+      "goal": "300",
+      "tasks": [
+        {
+          "title": "Run",
+          "description": "asdf",
+          "value": 3,
+          "achieved": [],
+          "redo": true
+        }
+      ]
     }
   ]
 }

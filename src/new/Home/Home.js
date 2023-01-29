@@ -22,7 +22,6 @@ const Home = () => {
 
   function updateRoomUser(paramId, user) {
     const room = rooms.find(room => room.id === paramId);
-    console.log("AAAAA")
     if (room) {
       const userIndex = room.users.findIndex((u) => u[0] === user);
       client.put(`/${paramId}`, {
@@ -43,11 +42,11 @@ const Home = () => {
   return (
     <div>
     { name.length > 0 ? 
-      <div>
+      <div className='homeContainer'>
       <h4 className="greeting">Hello, {name}</h4>
       <button className="changeNameButton" onClick={() => {
         setName("");
-      }}>Change Name</button>  
+      }}>Logout</button>  
       
       <div>Join group:</div>
       <div className='join' action="">
@@ -94,7 +93,8 @@ const Home = () => {
     <button type="submit" onClick={() => {
       localStorage.setItem("name", document.getElementById("nameBox").value);
       setName(localStorage.getItem("name"));
-    }}>Submit Name</button>
+      document.getElementById("navName").innerHTML = localStorage.getItem("name");
+    }}>Log In</button>
   </form>
   </>
   }
