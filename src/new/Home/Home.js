@@ -29,7 +29,7 @@ const Home = () => {
         id: paramId,
         name: room.name,
         password: room.password,
-        users: userIndex === -1 ? room.users.concat([[user, 0]]) : room.users.filter((u) => u[0] !== user),
+        users: userIndex === -1 ? room.users.concat([[user, 0, []]]) : room.users.filter((u) => u[0] !== user),
         tasks: room.tasks,
         goal: room.goal
       })

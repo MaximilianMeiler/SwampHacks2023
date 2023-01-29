@@ -1,28 +1,71 @@
 {
   "rooms": [
     {
-      "id": "kvrk1lf",
-      "name": "",
+      "id": "uuuuuuu",
+      "name": "Max's Room",
       "users": [
         [
           "Max",
-          0
+          57,
+          [
+            0,
+            1,
+            0
+          ]
         ]
       ],
       "tasks": [],
-      "goal": ""
+      "goal": 100
     },
     {
-      "id": "2kfa0leh",
-      "name": "k",
+      "id": "o8z1992",
+      "name": "Max's new room",
       "users": [
         [
           "Max",
-          0
+          195,
+          [
+            null,
+            3,
+            5,
+            null,
+            5,
+            3,
+            5,
+            3,
+            3,
+            4,
+            null,
+            null,
+            5,
+            null,
+            4,
+            4,
+            5,
+            null,
+            1
+          ]
         ]
       ],
-      "tasks": [],
-      "goal": "7"
+      "goal": "50",
+      "tasks": [
+        {
+          "title": "Go to the gym",
+          "description": "Work hard!",
+          "value": 10,
+          "achieved": [],
+          "redo": true
+        },
+        {
+          "title": "Finish comp sci project",
+          "description": "Code hard!",
+          "value": 20,
+          "achieved": [
+            "Kai"
+          ],
+          "redo": false
+        }
+      ]
     }
   ]
 }

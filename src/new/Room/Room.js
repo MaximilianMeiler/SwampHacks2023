@@ -5,12 +5,14 @@ import { useEffect, useState } from 'react';
 import Goal from "./Goal";
 import './Room.css';
 import './Goal.css'
+import Card from "../Cards/Card"
+
+
 
 const Room = () => {
   const {id} = useParams();
   const [flag, setFlag] = useState(0);
-  const [room, setRoom] = useState(null)
-  const [cards,setCards] = useState([]);  
+  const [room, setRoom] = useState(null) 
 
   useEffect(() => {
     axios.get(`http://localhost:3500/rooms/${id}`)
@@ -29,11 +31,16 @@ function sortUsers(a, b) {
 }
 
 
-  let navigate = useNavigate();
+function useCard(index) {
+  
+}
+
+let navigate = useNavigate();
 
   return (
+    
     (room === null) ? 
-      <div>Room loading...</div> :
+      <div>Group loading...</div> :
 
     (localStorage.getItem("name").length < 1 || room.users.findIndex((user) => user[0] === localStorage.getItem("name")) < 0) ? 
         navigate("/") :
@@ -64,6 +71,11 @@ function sortUsers(a, b) {
           task.achieved.indexOf(localStorage.getItem("name")) === -1 ? 
             <Goal id={id} room={room} flag={flag} setFlag={setFlag} task={task}/> : 
             <p className="taskComplete">Task achieved!</p>
+        ))}
+      </ul>
+      <ul>
+        {room.users.find((u) => u[0] === localStorage.getItem("name"))[2].map((card) => (
+          <Card index={card} room={room} flag={flag} setFlag={setFlag}/>
         ))}
       </ul>
     </div>

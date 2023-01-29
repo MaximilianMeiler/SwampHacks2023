@@ -10,6 +10,7 @@ const client = axios.create({
   baseURL: "http://localhost:3500/rooms" 
 });
 
+
 const MakeGroup = ({currentSize}) => {
   const [tasks, setTasks] = useState([]);
   //const [flag, setFlag] = useState(0);
@@ -17,7 +18,6 @@ const MakeGroup = ({currentSize}) => {
   const handleDelete = (id) => {
     const listTasks = tasks.filter((task) => task.id !== id);
     setTasks(listTasks);
-    // setTasks("tasksList", JSON.stringify(listTasks));
   }
 
   const i = (Math.random() + 1).toString(36).substring(5);
@@ -25,7 +25,7 @@ const MakeGroup = ({currentSize}) => {
     const newGroup = {
         id: i,
         name : document.getElementById("groupName").value,
-        users: [[localStorage.getItem("name"),0]],
+        users: [[localStorage.getItem("name"),0,[]]],
         tasks: tasks,
         goal: document.getElementById("goalBox").value
     }
@@ -36,9 +36,9 @@ const MakeGroup = ({currentSize}) => {
 
   return (
     <div>
-      
+      <h2>Create A Group</h2>
       <input type="text" id="groupName" placeholder='Group Name'/>
-      <input type="text" id="goalBox" placeholder='Point goal'/>
+      <input type="number" id="goalBox" placeholder='Point goal'/>
       <Link className="buttonLike" to={"/"} onClick={() => publishGroup()}>
         Publish
       </Link>
