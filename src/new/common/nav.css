@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 350px;
+  gap: 150px;
   background-color: var(--clr-4);
   margin: 0;
   padding: 0;

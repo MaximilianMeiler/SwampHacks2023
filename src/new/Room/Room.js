@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import Goal from "./Goal";
 import './Room.css';
 import './Goal.css'
+import Card from "../Cards/Card"
 
 const Room = () => {
   const {id} = useParams();
@@ -28,13 +29,24 @@ const Room = () => {
       setRoom(res.data)
     })
   }, [flag]);
-  console.log(room)
+  if (room) {
+
+  console.log(room.users.sort(sortUsernames))
+  }
   
 function sortUsers(a, b) {
   if (a[1] > b[1]) {
     return -1;
   } else {
     return 1;
+  }
+}
+
+function sortUsernames(a, b) {
+  if (a[0] > b[0]) {
+    return -1
+  } else {
+    return 1
   }
 }
 
@@ -66,8 +78,12 @@ function sortUsers(a, b) {
         navigate("/") :
 
     <div className="room">
-      <p>Join Code: {id}</p>
+      <div id="feedback" className="feedback hidden">
+        <div>Task Completed!</div>
+      </div>
+      <p className='codeNotif'>Join Code: {id}</p>
       <p>&nbsp;</p>
+    <p className="winNotif">Points need to win: {room.goal}</p>
       <p className='winners'>
         {room.users.filter((u) => u[1] >= room.goal).length > 0 ? "Winners:  " : ""}
         {room.users.filter((u) => u[1] >= room.goal).map((u) => u[0]).join(', ')}
@@ -78,13 +94,13 @@ function sortUsers(a, b) {
             {
               room.users.sort(sortUsers).map((u) => (
                 <div onMouseOver={() => focus(room.users.indexOf(u))} onMouseLeave={() => defocus(room.users.indexOf(u))} 
-                id={room.users.indexOf(u)} className="char" style={((parseInt(room.users.indexOf(u)))%2) ? 
+                id={room.users.indexOf(u)} className="char" style={(u[0].charCodeAt() % 2) ? 
                   {top: (270 * (1 - u[1] / room.goal) < 0 ? 0 : 270 * (1 - u[1] / room.goal)) + 'px', 
                   left:270 * u[1] / room.goal > 270 ? 250 : 270 * u[1] / room.goal -20+'px', 
-                  backgroundColor: colorArray[room.users.indexOf(u)], opacity:0.85, animationDuration:1+'s'} 
+                  backgroundColor: colorArray[u[0].charCodeAt() % 50], opacity:0.85, animationDuration:1+'s'} 
                   : {top: (270 * (1 - u[1] / room.goal) < 0 ? 0 : 270 * (1 - u[1] / room.goal)) + 'px',
                   left: 270 * u[1] / room.goal > 270 ? 250 : 520 - (270 * u[1] / room.goal)+'px', 
-                  backgroundColor: colorArray[room.users.indexOf(u)], opacity:0.85, animationDuration:1+'s'
+                  backgroundColor: colorArray[u[0].charCodeAt() % 50], opacity:0.85, animationDuration:1+'s'
                 }}>
                   <div>
                   {room.users.indexOf(u) + 1}
@@ -103,7 +119,7 @@ function sortUsers(a, b) {
         </tr>
         {room.users.sort(sortUsers).map((user) => (
           <tr id={"tr" + room.users.indexOf(user)} className={parseInt(user[1]) >= parseInt(room.goal) ? "winner" : ""} 
-          style={{color: colorArray[room.users.indexOf(user)]}}>
+          style={{color: colorArray[user[0].charCodeAt() % 50]}}>
             <td onMouseOver={() => focus(room.users.indexOf(user))} onMouseLeave={() => defocus(room.users.indexOf(user))}>{room.users.indexOf(user) + 1}</td>
             <td onMouseOver={() => focus(room.users.indexOf(user))} onMouseLeave={() => defocus(room.users.indexOf(user))}>{user[0]}</td>
             <td onMouseOver={() => focus(room.users.indexOf(user))} onMouseLeave={() => defocus(room.users.indexOf(user))}>{user[1]}</td>
@@ -111,7 +127,11 @@ function sortUsers(a, b) {
         ))}
       </table>
     </div>
-    <p>Points need to win: {room.goal}</p>
+    <ul className='cardList'>
+        {room.users.find((u) => u[0] === localStorage.getItem("name"))[2].map((card) => (
+          <Card index={card} room={room} flag={flag} setFlag={setFlag}/>
+        ))}
+    </ul>
     <ul className="taskList">
       {room.tasks.map((task) => (
         task.achieved.indexOf(localStorage.getItem("name")) === -1 ? 

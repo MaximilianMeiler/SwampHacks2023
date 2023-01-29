@@ -22,7 +22,6 @@ const Home = () => {
 
   function updateRoomUser(paramId, user) {
     const room = rooms.find(room => room.id === paramId);
-    console.log("AAAAA")
     if (room) {
       const userIndex = room.users.findIndex((u) => u[0] === user);
       client.put(`/${paramId}`, {
@@ -45,17 +44,15 @@ const Home = () => {
     { name.length > 0 ? 
       <div className='homeContainer'>
       <h4 className="greeting">Hello, {name}</h4>
-      <button className="changeNameButton" onClick={() => {
-        setName("");
-      }}>Logout</button>  
       
-      <div>Join group:</div>
+      <p style={{marginTop: "20px"}}></p>
+      <div className="joinText">Join group:</div>
       <div className='join' action="">
         <input id="codeBox" type="text" placeholder='Enter code...'/>
         <button type="submit" onClick={() => updateRoomUser(document.getElementById("codeBox").value, localStorage.getItem("name"))}>Join!</button>
       </div>
 
-      <h4>Your groups:</h4>
+      <h4 className="yourText">Your groups:</h4>
       <ul className="roomList">
         {rooms.map((room) => (
           room.users.findIndex((user) => user[0] === localStorage.getItem("name")) >= 0 ?

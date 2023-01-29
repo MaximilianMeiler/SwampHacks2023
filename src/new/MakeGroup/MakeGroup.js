@@ -36,7 +36,7 @@ const MakeGroup = ({currentSize}) => {
 
   return (
     <div>
-      <h2>Create A Group</h2>
+      <h2 class="createText">Create a Group</h2>
       <input type="text" id="groupName" placeholder='Group Name'/>
       <input type="number" id="goalBox" placeholder='Point goal'/>
       <Link className="buttonLike" to={"/"} onClick={() => publishGroup()}>

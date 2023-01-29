@@ -13,12 +13,20 @@ form {
   margin-top:50px;
 }
 
+.joinText{
+  display: inline;
+  font-size: 20px;
+  margin-right: 10px;
+}
 .join {
   margin-top: 10px;
+  display: inline;
 }
 
 .greeting {
   padding: 0 0 15px;
+  display: inline;
+  font-size: 25px;
 }
 
 .changeNameButton {
@@ -32,6 +40,10 @@ form {
 	margin: auto 0 auto 0;
   border-radius: 60px;
 }
+.yourText{
+  padding-bottom: 10px;
+  font-size: 30px;
+}
 .roomList {
   justify-content: center;
   display: grid;
@@ -39,7 +51,7 @@ form {
   gap: 42px;
   background-color: var(--clr-accent);
   padding: 100px;
-  border-radius: 3000px;
+  border-radius: 100px;
   margin-bottom: 50px;
 }
 .roomItem {

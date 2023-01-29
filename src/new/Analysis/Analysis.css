@@ -1,0 +1,16 @@
+.pie-chartone {
+	position: relative;
+  width: 120px;
+  height: 120px;
+	margin: auto 0 auto 0;
+  border-radius: 60px;
+}
+.anTitle {
+  font-size: 48px;
+  margin-bottom: 24px;
+}
+.anTable {
+  font-size: 20px;
+  font-weight: bold;
+  justify-content: center;
+}

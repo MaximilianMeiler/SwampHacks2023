@@ -11,11 +11,11 @@ const Task = ({task, handleDelete}) => {
             role = "button"
             tabIndex="0"
         />
-        <label id="title">
+        <p id="title">
             {task.title}
-        </label>
+        </p>
         <p id="points">
-            Points: {task.value}
+            Points: {task.value}{task.redo?" / (Repeat)":""}
         </p>
         <p id="description">
             {task.description}

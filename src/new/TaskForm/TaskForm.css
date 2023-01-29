@@ -7,3 +7,11 @@ label {
 .radio {
     margin-top: 8px;
 }
+
+.redoCheck { 
+    width: 20px;
+    height: 20px;
+}
+.redoText {
+    font-size: 25px;
+}

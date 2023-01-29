@@ -1,0 +1,42 @@
+
+.cardList {
+  display: grid;
+  grid-template-columns: 200px 200px 200px 200px;
+  row-gap: 20px;
+  column-gap: 20px;
+  margin-top: 40px;
+  right: 10%;
+  padding: 0;
+  justify-content: center;
+}
+.cardItem {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #403634;
+  background: #cfcfcf;
+  padding: 6px;
+  height: 300px;
+}
+.cardImg {
+  width: 186px;
+  height: 186px;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  overflow: hidden;
+}
+.cardImg img {
+  display: block;
+  width:100%;
+}
+.cardTitle {
+  font-size: 24px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  text-align: center;
+  font-weight: bold;
+}
+.cardDesc {
+  padding: 8px;
+  text-align: center;
+}

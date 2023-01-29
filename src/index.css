@@ -15,7 +15,7 @@ html {
 
 :root {
   --clr-light: #F2EFEB;
-  --clr-dark: #0D0D0D;
+  --clr-dark: #1c1f1c;
   --clr-accent: #888C81;
   --clr-4: #3D403A;
   --clr-5: #D9C9BA;
@@ -70,4 +70,8 @@ textarea {
 
 .container {
   padding-top: 50px;
+}
+
+.hidden {
+  display: none;
 }

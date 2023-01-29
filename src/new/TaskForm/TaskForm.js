@@ -3,13 +3,24 @@ import './TaskForm.css'
 
 const TaskForm = ({tasks, setTasks}) => {
   
-  // const addTask = () => {
-  //   const a = document.getElementById("nameBox").value;
-  //   const b = document.getElementById("weightBox").value;
-  //   if (a === "" || b === "") {
-  //     alert("Missing Task Name and Task points")
-  //   }
-  // }
+  const addTask = () => {
+    const id = tasks.length + 1;
+    const title = document.getElementById("nameBox").value;
+    const desc = document.getElementById("descBox").value;
+    const value = document.getElementById("weightBox").value;
+    const redo = document.getElementById("redoCheck").checked;
+    if(id === "" || title === "" || value === "") {
+      alert("Missing fields.")
+      return;
+    }
+    return setTasks([...tasks, {
+    id: id,
+    title: title,
+    description: desc,
+    value: parseInt(value),
+    achieved: [],
+    redo: redo
+  }])}
 
   return (
     <div className="form">
@@ -17,17 +28,10 @@ const TaskForm = ({tasks, setTasks}) => {
       <input className='formInput' type="number" id="weightBox" placeholder='Task points'/>
       <textarea className='formInput' type="text" id="descBox" placeholder='Task description'/>
       <div className='radio'>
-        <input type="checkbox" id="redoCheck"/>
-        <label for="redoCheck">Repeatable?</label>
+        <input type="checkbox" id="redoCheck" className='redoCheck'/>
+        <label for="redoCheck" className='redoText'>Repeatable?</label>
       </div>
-      <button className='addTaskButton' onClick={()=> setTasks([...tasks, {
-        id: tasks.length + 1,
-        title: document.getElementById("nameBox").value,
-        description: document.getElementById("descBox").value,
-        value: parseInt(document.getElementById("weightBox").value),
-        achieved: [],
-        redo: document.getElementById("redoCheck").checked
-      }])}>
+      <button className='addTaskButton' onClick={addTask}>
         Add task
       </button>
     </div>
