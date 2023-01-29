@@ -1,7 +1,7 @@
 # Climbr - SwampHacks2023
 
 ## Project Summary
-A competitive goal-setting app with motivating twists.
+A competitive goal-setting app with a fun twist.
 
 
 ## Installation instructions

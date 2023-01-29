@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Goal from "./Goal";
-import './Room.css';
+import './room.css';
 import './Goal.css'
 import Card from "../Cards/Card"
 
