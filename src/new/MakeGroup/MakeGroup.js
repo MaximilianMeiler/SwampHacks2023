@@ -25,7 +25,7 @@ const MakeGroup = ({currentSize}) => {
     const newGroup = {
         id: i,
         name : document.getElementById("groupName").value,
-        users: [[localStorage.getItem("name"),0]],
+        users: [[localStorage.getItem("name"),0,[]]],
         tasks: tasks,
         goal: document.getElementById("goalBox").value
     }
@@ -36,9 +36,9 @@ const MakeGroup = ({currentSize}) => {
 
   return (
     <div>
-      
+      <h2>Create A Group</h2>
       <input type="text" id="groupName" placeholder='Group Name'/>
-      <input type="text" id="goalBox" placeholder='Point goal'/>
+      <input type="number" id="goalBox" placeholder='Point goal'/>
       <Link className="buttonLike" to={"/"} onClick={() => publishGroup()}>
         Publish
       </Link>
