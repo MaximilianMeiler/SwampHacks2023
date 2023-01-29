@@ -47,11 +47,13 @@ function sortUsers(a, b) {
 
       <table className="leaderboard">
         <tr className="tableHeader">
+          <th>#</th>
           <th>Name</th>
           <th>Points</th>
         </tr>
         {room.users.sort(sortUsers).map((user) => (
           <tr>
+            <td className={parseInt(user[1]) >= parseInt(room.goal) ? "winner" : ""}>{room.users.indexOf(user) + 1}</td>
             <td className={parseInt(user[1]) >= parseInt(room.goal) ? "winner" : ""}>{user[0]}</td>
             <td className={parseInt(user[1]) >= parseInt(room.goal) ? "winner" : ""}>{user[1]}</td>
           </tr>

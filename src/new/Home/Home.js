@@ -22,6 +22,7 @@ const Home = () => {
 
   function updateRoomUser(paramId, user) {
     const room = rooms.find(room => room.id === paramId);
+    console.log("AAAAA")
     if (room) {
       const userIndex = room.users.findIndex((u) => u[0] === user);
       client.put(`/${paramId}`, {
@@ -49,10 +50,10 @@ const Home = () => {
       }}>Change Name</button>  
       
       <div>Join group:</div>
-      <form className='join' action="">
+      <div className='join' action="">
         <input id="codeBox" type="text" placeholder='Enter code...'/>
         <button type="submit" onClick={() => updateRoomUser(document.getElementById("codeBox").value, localStorage.getItem("name"))}>Join!</button>
-      </form>
+      </div>
 
       <h4>Your groups:</h4>
       <ul className="roomList">

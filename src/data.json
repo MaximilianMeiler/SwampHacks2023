@@ -1,4 +1,28 @@
 {
   "rooms": [
+    {
+      "id": "kvrk1lf",
+      "name": "",
+      "users": [
+        [
+          "Max",
+          0
+        ]
+      ],
+      "tasks": [],
+      "goal": ""
+    },
+    {
+      "id": "2kfa0leh",
+      "name": "k",
+      "users": [
+        [
+          "Max",
+          0
+        ]
+      ],
+      "tasks": [],
+      "goal": "7"
+    }
   ]
 }
