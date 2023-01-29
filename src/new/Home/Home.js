@@ -41,6 +41,7 @@ const Home = () => {
   
   return (
     <div>
+    <img className="mountainImg" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.suwalls.com%2Fwallpapers%2Fnature%2Fsnow-on-mountain-peaks-36874-1920x1200.jpg&f=1&nofb=1&ipt=29b1193425bb1e2633b43c4af8a7e8c0c70d1a2cc8dc4e563a113cb3f0b06ef9&ipo=images" alt="" />
     { name.length > 0 ? 
       <div className='homeContainer'>
       <h4 className="greeting">Hello, {name}</h4>

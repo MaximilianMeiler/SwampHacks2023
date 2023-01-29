@@ -71,13 +71,19 @@ function sortUsernames(a, b) {
   let navigate = useNavigate();
 
   return (
+    
     (room === null) ? 
-      <div>Room loading...</div> :
+      <div>
+        <img className="mountainImg" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.suwalls.com%2Fwallpapers%2Fnature%2Fsnow-on-mountain-peaks-36874-1920x1200.jpg&f=1&nofb=1&ipt=29b1193425bb1e2633b43c4af8a7e8c0c70d1a2cc8dc4e563a113cb3f0b06ef9&ipo=images" alt="" />
+        Room loading...</div> :
 
     (localStorage.getItem("name").length < 1 || room.users.findIndex((user) => user[0] === localStorage.getItem("name")) < 0) ? 
         navigate("/") :
 
+    
     <div className="room">
+      <img className="mountainImg" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.suwalls.com%2Fwallpapers%2Fnature%2Fsnow-on-mountain-peaks-36874-1920x1200.jpg&f=1&nofb=1&ipt=29b1193425bb1e2633b43c4af8a7e8c0c70d1a2cc8dc4e563a113cb3f0b06ef9&ipo=images" alt="" />
+
       <div id="feedback" className="feedback hidden">
         <div>Task Completed!</div>
       </div>

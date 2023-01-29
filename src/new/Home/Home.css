@@ -2,6 +2,15 @@
   font-size: 48px;
 }
 
+.mountainImg{
+  z-index: -1;
+  opacity: .1;
+  position: fixed;
+  left: 0;
+  width: 110%;
+  top: 0;
+}
+
 .homeContainer {
   width: 90%;
   max-width: 1000px;

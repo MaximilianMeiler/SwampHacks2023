@@ -3,6 +3,16 @@
     margin: auto;
 }
 
+
+.mountainImg{
+    z-index: -1;
+    opacity: .1;
+    position: fixed;
+    left: 0;
+    width: 110%;
+    top: 0;
+  }
+  
 .winners {
     margin-bottom: 10px;
     padding-left: 410px;
@@ -176,7 +186,7 @@ tr.focused {
     75% {
         font-size: 48px;
     }
-    to {
+    to {    
     transform: rotate(359deg);
         font-size: 24px;
     }

@@ -1,5 +1,17 @@
 {
   "rooms": [
-    
+    {
+      "id": "phgib9z",
+      "name": "Max's group",
+      "users": [
+        [
+          "Max",
+          0,
+          []
+        ]
+      ],
+      "tasks": [],
+      "goal": "3"
+    }
   ]
 }
