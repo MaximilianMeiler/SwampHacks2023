@@ -48,13 +48,13 @@ const Home = () => {
         setName("");
       }}>Change Name</button>  
       
-      <p>Join room:</p>
-      <form action="">
+      <div>Join group:</div>
+      <form className='join' action="">
         <input id="codeBox" type="text" placeholder='Enter code...'/>
         <button type="submit" onClick={() => updateRoomUser(document.getElementById("codeBox").value, localStorage.getItem("name"))}>Join!</button>
       </form>
 
-      <h4>Your rooms:</h4>
+      <h4>Your groups:</h4>
       <ul className="roomList">
         {rooms.map((room) => (
           room.users.findIndex((user) => user[0] === localStorage.getItem("name")) >= 0 ?
@@ -69,13 +69,13 @@ const Home = () => {
               </div>
               <div className="numbers">
                 <p>Your points: {room.users.find((user) => user[0] === localStorage.getItem("name"))[1]}</p>
-                <Link className="buttonLike" to={`/${room.id}`}>Go to Room</Link>
+                <Link className="buttonLike" to={`/${room.id}`}>Go to group</Link>
                 <button 
                   onClick={() => {
                     updateRoomUser(room.id, localStorage.getItem("name"));
                     }
                   }
-                >Leave room</button>
+                >Leave group</button>
               </div>
             </div>
           </div>
@@ -83,7 +83,7 @@ const Home = () => {
             ))}
       </ul>
       {
-        (rooms.length === 0) ? <h4>Loading rooms...</h4> : <></>
+        (rooms.length === 0) ? <h4>Loading groups...</h4> : <></>
       }
       </div>
   :  <>

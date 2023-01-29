@@ -41,7 +41,7 @@ function sortUsers(a, b) {
     <div className="room">
       <p>Points need to win: {room.goal}</p>
       <p className='winners'>
-        Winners: &nbsp;
+        {room.users.filter((u) => u[1] >= room.goal).length > 0 ? "Winners:  " : ""}
         {room.users.filter((u) => u[1] >= room.goal).map((u) => u[0]).join(', ')}
       </p>
 
