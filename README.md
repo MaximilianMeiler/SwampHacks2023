@@ -1,8 +1,12 @@
 # Climbr - SwampHacks2023
 
-This application currently requires a local JSON server.
+## Project Summary
+A competitive goal-setting app with motivating twists.
+
 
 ## Installation instructions
+
+This application currently requires a local JSON server.
 
 1. Clone the repo
 2. "cd" into the src folder, run "npx json-server -p 3500 -w data.json"
