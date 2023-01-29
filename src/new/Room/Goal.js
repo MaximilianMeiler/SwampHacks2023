@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from "axios";
+import './Goal.css'
 
-const Goal = ({id, room, flag, setFlag, task}) => {
+const Goal = ({id, room, flag, setFlag, task}) => { 
 
   function completeTask() {
     axios.put(`http://localhost:3500/rooms/${id}`, {
@@ -11,17 +12,20 @@ const Goal = ({id, room, flag, setFlag, task}) => {
       users: room.users.map((user) => (
         user[0] === localStorage.getItem("name") ? [user[0], user[1] + task.value] : user
       )),
+      goal: room.goal,
       tasks: room.tasks.map((t) => (
-        task.title === t.title ? {
+        task.title === t.title && task.redo === false ? {
           title: t.title,
           description: t.description,
           value: t.value,
-          achieved: t.achieved.concat([localStorage.getItem("name")])
+          achieved: t.achieved.concat([localStorage.getItem("name")]),
+          redo: t.redo
         } : {
           title: t.title,
           description: t.description,
           value: t.value,
-          achieved: t.achieved
+          achieved: t.achieved,
+          redo: t.redo
         }
       ))
     })
@@ -32,12 +36,11 @@ const Goal = ({id, room, flag, setFlag, task}) => {
 
 
   return (
-    <div>
-      <p></p>
-      <div>{task.title}</div>
-      <div>Points: {task.value}</div>
-      <div>{task.description}</div>
-      <button onClick={() => completeTask()}></button>
+    <div className="goalContainer">
+      <div className="goalName">{task.title}</div>
+      <p>Points: {task.value}</p>
+      <p>{task.description}</p>
+      <button onClick={() => completeTask()}>Done</button>
     </div>
   )
 }

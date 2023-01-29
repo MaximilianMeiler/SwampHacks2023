@@ -5,6 +5,8 @@
   flex-direction: row;
   justify-content: space-around;
   background-color: var(--clr-4);
+  margin: 0;
+  padding: 0;
 }
 
 .navItem {

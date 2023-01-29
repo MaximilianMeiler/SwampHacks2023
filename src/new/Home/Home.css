@@ -5,3 +5,58 @@
 form {
   margin-top:50px;
 }
+
+.greeting {
+  padding: 0 0 15px;
+}
+
+.changeNameButton {
+  margin-bottom: 20px;
+}
+
+.pie-chartone {
+	position: relative;
+  width: 120px;
+  height: 120px;
+	margin: auto 0 auto 0;
+  border-radius: 60px;
+}
+.roomList {
+  justify-content: center;
+  display: grid;
+  grid-template-columns: 400px 400px;
+  gap: 42px;
+}
+.roomItem {
+  display: block;
+  background: var(--clr-4);
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 2px 2px 2px var(--clr-4);
+}
+.roomName {
+  color: var(--clr-light);
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+.roomBottom {
+  height:142px;
+  display:flex;
+  justify-content:space-between;
+}
+.numbers {
+  width: 150px;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+.numbers p {
+  font-size: 18px;
+  margin: 0;
+  color: var(--clr-light);
+}
+h4 {
+  padding: 40px;
+  font-size: 20px;
+}

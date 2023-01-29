@@ -3,18 +3,70 @@
     margin: auto;
 }
 
+.winners {
+    margin-bottom: 10px;
+}
+
 .leaderboard {
-    border-spacing: 30px;
+    border-spacing: 10px;
+    margin: auto auto 30px auto;
+    margin-bottom: 30px;
 }
 
 table {
     counter-reset: rowNumber;
+    border-collapse: collapse;
 }
-  
+
+td, th {
+    border: 1px solid var(--clr-light);
+    padding: 10px;
+}
+
 table tr::before {
     display: table-cell;
     counter-increment: rowNumber;
     content: counter(rowNumber);
     padding-right: 0.3em;
     text-align: right;
+    padding: 10px;
+    border: 1px solid var(--clr-light);
+}
+tr:nth-child(even) {
+    background-color: var(--clr-accent);
+}
+tr:nth-child(odd) {
+    
+    background-color: var(--clr-4);
+}
+
+.tableHeader {
+
+}
+
+.taskList {
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 400px 400px;
+    gap: 42px;
+}
+.roomBottom {
+    height:142px;
+    display:flex;
+    justify-content:space-between;
+}
+.numbers {
+    width: 150px;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+.numbers p {
+    font-size: 18px;
+    margin: 0;
+    color: var(--clr-light);
+}
+
+.winner {
+    color: #F28163;
 }

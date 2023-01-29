@@ -1,24 +1,34 @@
 {
   "rooms": [
     {
-      "id": 0,
+      "id": "0",
       "name": "Test room",
       "password": "testPass",
       "users": [
         [
+          "Heon",
+          85
+        ],
+        [
+          "Maximilian",
+          90
+        ],
+        [
           "Sai",
-          75
+          35
+        ],
+        [
+          "Kai",
+          15
         ]
       ],
+      "goal": 50,
       "tasks": [
         {
           "title": "task title",
           "description": "task desc",
           "value": 5,
-          "achieved": [
-            "Max",
-            "Sai",
-          ],
+          "achieved": [],
           "redo": true
         },
         {
@@ -27,9 +37,70 @@
           "value": 15,
           "achieved": [
             "Max",
-            "Sai",
+            "Maximilian"
           ],
           "redo": false
+        }
+      ]
+    },
+    {
+      "id": "m2bdqof",
+      "name": "Group name",
+      "users": [
+        [
+          "Max",
+          450
+        ]
+      ],
+      "tasks": [],
+      "goal": "900"
+    },
+    {
+      "id": "0qp3zcs",
+      "name": "5:47",
+      "users": [
+        [
+          "Max",
+          0
+        ]
+      ],
+      "tasks": [],
+      "goal": "547"
+    },
+    {
+      "id": "qkc2vvs",
+      "name": "a",
+      "users": [],
+      "tasks": [
+        {
+          "title": "task",
+          "description": ".",
+          "value": -6,
+          "achieved": [
+            "Maximilian"
+          ],
+          "redo": false
+        }
+      ],
+      "goal": ""
+    },
+    {
+      "id": "gzyadzak",
+      "name": "b",
+      "users": [
+        [
+          "Maximilian",
+          -6
+        ]
+      ],
+      "goal": "10",
+      "tasks": [
+        {
+          "title": "mean",
+          "description": "",
+          "value": -6,
+          "achieved": [],
+          "redo": true
         }
       ]
     }

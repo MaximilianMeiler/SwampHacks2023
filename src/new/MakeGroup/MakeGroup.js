@@ -20,23 +20,26 @@ const MakeGroup = ({currentSize}) => {
     // setTasks("tasksList", JSON.stringify(listTasks));
   }
 
+  const i = (Math.random() + 1).toString(36).substring(5);
   const publishGroup = () => {
     const newGroup = {
-        id: currentSize + 1,
+        id: i,
         name : document.getElementById("groupName").value,
         users: [[localStorage.getItem("name"),0]],
-        tasks: tasks
+        tasks: tasks,
+        goal: document.getElementById("goalBox").value
     }
     client.post("", newGroup)
     .then((res) => {})
   }
 
-  const target = `/${currentSize+1}`
 
   return (
     <div>
+      
       <input type="text" id="groupName" placeholder='Group Name'/>
-      <Link className="buttonLike" to={target} onClick={() => publishGroup()}>
+      <input type="text" id="goalBox" placeholder='Point goal'/>
+      <Link className="buttonLike" to={"/"} onClick={() => publishGroup()}>
         Publish
       </Link>
       <TaskForm tasks={tasks} setTasks={setTasks}/>

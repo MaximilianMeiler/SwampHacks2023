@@ -1,0 +1,25 @@
+.goalContainer, .taskComplete {
+  display: block;
+  background-color: var(--clr-4);
+  padding: 30px;
+  border-radius: 25px;
+}
+.taskComplete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #55A65E;
+  height: 190px;
+}
+button {
+  margin-top: 10px;
+}
+
+.goalName {
+  color: var(--clr-light);
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
