@@ -1,4 +1,4 @@
-# SwampHacks2023
+# Climbr - SwampHacks2023
 
 This application currently requires a local JSON server.
 
