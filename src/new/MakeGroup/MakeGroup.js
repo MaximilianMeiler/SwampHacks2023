@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 import './MakeGroup.css';
 
 const client = axios.create({
-  baseURL: "http://localhost:3500/rooms" 
+  baseURL: "https://climbr-fdd3e-default-rtdb.firebaseio.com/rooms.json"  
 });
 
 const MakeGroup = ({currentSize}) => {
@@ -29,7 +29,7 @@ const MakeGroup = ({currentSize}) => {
         tasks: tasks,
         goal: document.getElementById("goalBox").value
     }
-    client.post("", newGroup)
+    client.post("/", newGroup)
     .then((res) => {})
   }
 

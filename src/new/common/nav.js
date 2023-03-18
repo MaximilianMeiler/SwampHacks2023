@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './nav.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
-  const [name, setName] = useState(localStorage.getItem("name") === null ? "" : localStorage.getItem("name"));
+  const [name] = useState(localStorage.getItem("name") === null ? "" : localStorage.getItem("name"));
 
   let navigate = useNavigate();
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import {useState, useEffect} from 'react'
+//import {useState, useEffect} from 'react'
 import axios from "axios"
 import './Card.css';
 
@@ -91,7 +91,7 @@ const Card = ({index, room, flag, setFlag}) => {
       {background: "#a74d4d"}
     }>
       <div class="cardImg">
-        <img src={imgs[index]}/>
+        <img src={imgs[index]} alt="card"/>
       </div>
       <h6 class="cardTitle">{names[index]}</h6>
       <div class="cardDesc">

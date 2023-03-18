@@ -1,17 +1,142 @@
 {
   "rooms": [
     {
-      "id": "phgib9z",
+      "id": "ye6jdfv",
       "name": "Max's group",
       "users": [
         [
+          "Heon",
+          45,
+          [
+            5,
+            5,
+            2,
+            0
+          ]
+        ],
+        [
+          "Kai",
+          30,
+          [
+            5,
+            5,
+            2,
+            0
+          ]
+        ],
+        [
+          "Sai",
+          15,
+          [
+            5,
+            5,
+            2,
+            0
+          ]
+        ],
+        [
           "Max",
-          0,
+          10,
           []
         ]
       ],
-      "tasks": [],
-      "goal": "3"
+      "goal": "50",
+      "tasks": [
+        {
+          "title": "Get bread",
+          "description": "",
+          "value": 5,
+          "achieved": [
+            "Max"
+          ],
+          "redo": true
+        },
+        {
+          "title": "Get bread",
+          "description": "",
+          "value": 5,
+          "achieved": [],
+          "redo": false
+        }
+      ]
+    },
+    {
+      "id": "xhca49gi",
+      "name": "Demo",
+      "users": [
+        [
+          "James",
+          40,
+          []
+        ]
+      ],
+      "tasks": [
+        {
+          "title": "Do hw",
+          "description": "decr",
+          "value": 10,
+          "achieved": [],
+          "redo": true
+        },
+        {
+          "title": "Win",
+          "description": "decr",
+          "value": 200,
+          "achieved": [
+            "Max"
+          ],
+          "redo": false
+        }
+      ],
+      "goal": "200"
+    },
+    {
+      "id": "x65abnu",
+      "name": "Chemistry",
+      "users": [
+        [
+          "Max",
+          1,
+          [
+            0
+          ]
+        ]
+      ],
+      "goal": "10",
+      "tasks": [
+        {
+          "title": "3",
+          "description": "",
+          "value": 1,
+          "achieved": [],
+          "redo": true
+        }
+      ]
+    },
+    {
+      "id": "lmjyb4k",
+      "name": "Group",
+      "users": [
+        [
+          "Max",
+          58,
+          [
+            2,
+            5,
+            5
+          ]
+        ]
+      ],
+      "goal": "100",
+      "tasks": [
+        {
+          "title": "task",
+          "description": "",
+          "value": 9,
+          "achieved": [],
+          "redo": true
+        }
+      ]
     }
   ]
 }

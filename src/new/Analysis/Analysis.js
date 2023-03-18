@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate, useParams } from 'react-router-dom';
+//import { useNavigate, useParams } from 'react-router-dom';
 import "./Analysis.css";
 
 const Analysis = () => {
-  const [flag, setFlag] = useState(0);
+  const [flag] = useState(0);
   const [rooms, setRooms] = useState([]);
   useEffect(() => {
     axios.get(`http://localhost:3500/rooms/`)

@@ -6,7 +6,7 @@ import {Link} from "react-router-dom"
 
 
 const client = axios.create({
-  baseURL: "http://localhost:3500/rooms"
+  baseURL: "https://climbr-fdd3e-default-rtdb.firebaseio.com/rooms.json"
 });
 
 const Home = () => {
