@@ -1,42 +1,31 @@
 import React from 'react'
-import axios from "axios";
 import './Home.css';
 import {useEffect, useState} from "react";
 import {Link} from "react-router-dom"
 
 
-const client = axios.create({
-  baseURL: "https://climbr-fdd3e-default-rtdb.firebaseio.com/rooms.json"
-});
-
-const Home = () => {
+const Home = ({rooms, baseUrl}) => {
   const [name, setName] = useState(localStorage.getItem("name") === null ? "" : localStorage.getItem("name"));
-  const [rooms, setRooms] = useState([]);
-  const [flag, setFlag] = useState(0);
 
-  useEffect(() => {
-    client.get("")
-    .then((res) => setRooms(res.data));
-  }, [flag]); //no dependency here allows commenting of request result actions
-     //add time-polling solution here
+  const removeUser = async (paramId, user) => {
+    await fetch(`${baseUrl}/rooms/leave/${paramId}/${user}`, {
+      method: "PATCH",
+    }).catch((e) => console.log(e))
 
-  function updateRoomUser(paramId, user) {
-    const room = rooms.find(room => room.id === paramId);
-    if (room) {
-      const userIndex = room.users.findIndex((u) => u[0] === user);
-      client.put(`/${paramId}`, {
-        id: paramId,
-        name: room.name,
-        password: room.password,
-        users: userIndex === -1 ? room.users.concat([[user, 0, []]]) : room.users.filter((u) => u[0] !== user),
-        tasks: room.tasks,
-        goal: room.goal
-      })
-      .then((res) => {
-        //const myRoom = rooms.findIndex(room => room.id === paramId)
-        setFlag(flag + 1);
-      })
-    }
+    // frontend update (doesnt work)
+    // const newUsers = rooms.find(room => room.id === paramId).users.filter(u => u[0] !== user);
+    // var newRooms = rooms.map(r => {
+    //   if (r.id !== paramId) {
+    //     r.users = newUsers;
+    //   }
+    // })
+    // setRooms(newRooms);
+  }
+
+  const addUser = async (paramId, user) => {
+    await fetch(`${baseUrl}/rooms/join/${paramId}/${user}`, {
+      method: "PATCH",
+    }).catch((e) => console.log(e))
   }
   
   return (
@@ -50,7 +39,7 @@ const Home = () => {
       <div className="joinText">Join group:</div>
       <div className='join' action="">
         <input id="codeBox" type="text" placeholder='Enter code...'/>
-        <button type="submit" onClick={() => updateRoomUser(document.getElementById("codeBox").value, localStorage.getItem("name"))}>Join!</button>
+        <button type="submit" onClick={() => addUser(document.getElementById("codeBox").value, localStorage.getItem("name"))}>Join!</button>
       </div>
 
       <h4 className="yourText">Your groups:</h4>
@@ -71,7 +60,7 @@ const Home = () => {
                 <Link className="buttonLike" to={`/${room.id}`}>Go to group</Link>
                 <button 
                   onClick={() => {
-                    updateRoomUser(room.id, localStorage.getItem("name"));
+                    removeUser(room.id, localStorage.getItem("name"));
                     }
                   }
                 >Leave group</button>

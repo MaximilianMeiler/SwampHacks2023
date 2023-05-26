@@ -4,11 +4,11 @@ import './Goal.css'
 
 const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
 
-const Goal = ({id, room, flag, setFlag, task}) => { 
+const Goal = ({id, rooms, task, baseUrl}) => { 
 
-  async function completeTask() {
-    const feedback = document.getElementById('feedback');
-    const delay = ms => new Promise(res => setTimeout(res, ms));
+  const room = rooms.find(r => r.id === id);
+
+  const completeTask = async () => {
     let card
     let random = clamp(Math.random() + (task.value / room.goal * 5), 0, 1)
     console.log(random)
@@ -21,41 +21,49 @@ const Goal = ({id, room, flag, setFlag, task}) => {
     } else {
       card = -1
     }
-    console.log(card)
 
-  
-      axios.put(`http://localhost:3500/rooms/${id}`, {
-        id: room.id,
-        name: room.name,
-        password: room.password,
-        users: room.users.map((user) => (
+    const user = localStorage.getItem("name");
+    await fetch(`${baseUrl}/rooms/${id}/${user}/${task}/${card}`, {
+      method: "PATCH",
+    }).catch((e) => console.log(e))
+
+
+      // axios.put(`http://localhost:3500/rooms/${id}`, {
+      //   id: room.id,
+      //   name: room.name,
+      //   password: room.password,
+      //   users: room.users.map((user) => (
       
-          user[0] === localStorage.getItem("name") ? 
-            card === -1 ? 
-            [user[0], user[1] + task.value*1.2, user[2]] :
-            [user[0], user[1] + task.value, user[2].concat([card])]
-          : user
-        )),
-        goal: room.goal,
-        tasks: room.tasks.map((t) => (
-          task.title === t.title && task.redo === false ? {
-            title: t.title,
-            description: t.description,
-            value: t.value,
-            achieved: t.achieved.concat([localStorage.getItem("name")]),
-            redo: t.redo
-          } : {
-            title: t.title,
-            description: t.description,
-            value: t.value,
-            achieved: t.achieved,
-            redo: t.redo
-          }
-        ))
-      })
-      .then((res) => {
-        setFlag(flag + 1);
-      })
+      //     user[0] === localStorage.getItem("name") ? 
+      //       card === -1 ? 
+      //       [user[0], user[1] + task.value*1.2, user[2]] :
+      //       [user[0], user[1] + task.value, user[2].concat([card])]
+      //     : user
+      //   )),
+      //   goal: room.goal,
+      //   tasks: room.tasks.map((t) => (
+      //     task.title === t.title && task.redo === false ? {
+      //       title: t.title,
+      //       description: t.description,
+      //       value: t.value,
+      //       achieved: t.achieved.concat([localStorage.getItem("name")]),
+      //       redo: t.redo
+      //     } : {
+      //       title: t.title,
+      //       description: t.description,
+      //       value: t.value,
+      //       achieved: t.achieved,
+      //       redo: t.redo
+      //     }
+      //   ))
+      // })
+      // .then((res) => {
+      //   setFlag(flag + 1);
+      // })
+
+
+      const feedback = document.getElementById('feedback');
+      const delay = ms => new Promise(res => setTimeout(res, ms));
       feedback.classList.remove('hidden');
       await delay(1500);
       feedback.classList.add('hidden');

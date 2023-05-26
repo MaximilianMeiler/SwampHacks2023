@@ -7,11 +7,13 @@ import './room.css';
 import './Goal.css'
 import Card from "../Cards/Card"
 
-const Room = () => {
+const Room = ({rooms, baseUrl}) => {
   const {id} = useParams();
   const [flag, setFlag] = useState(0);
-  const [room, setRoom] = useState(null)
   //const [cards,setCards] = useState([]); 
+  
+  const room = rooms.find(r => r.id === id);
+
   const colorArray = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6', 
   '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
   '#80B300', '#809900', '#E6B3B3', '#6680B3', '#66991A', 
@@ -23,15 +25,8 @@ const Room = () => {
   '#FF3380', '#CCCC00', '#66E64D', '#4D80CC', '#9900B3', 
   '#E64D66', '#4DB380', '#FF4D4D', '#99E6E6', '#6666FF']; 
 
-  useEffect(() => {
-    axios.get(`http://localhost:3500/rooms/${id}`)
-    .then((res) => {
-      setRoom(res.data)
-    })
-  }, [flag,id]);
   if (room) {
-
-  console.log(room.users.sort(sortUsernames))
+    console.log(room.users.sort(sortUsernames))
   }
   
 function sortUsers(a, b) {
@@ -141,7 +136,7 @@ function sortUsernames(a, b) {
     <ul className="taskList">
       {room.tasks.map((task) => (
         task.achieved.indexOf(localStorage.getItem("name")) === -1 ? 
-        <Goal id={id} room={room} flag={flag} setFlag={setFlag} task={task}/> : 
+        <Goal id={id} rooms={rooms} task={task} baseUrl={baseUrl}/> : 
         <p className="taskComplete">Task achieved!</p>
         ))}
     </ul>
