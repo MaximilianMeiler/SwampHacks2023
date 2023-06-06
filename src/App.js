@@ -27,7 +27,7 @@ function App() {
       <div className='container'>
         <Routes>
           <Route exact path="/" element={<Home rooms={rooms} baseUrl={baseUrl}/>}/>
-          <Route exact path="/create" element={<MakeGroup currentSize={1}/>}/>
+          <Route exact path="/create" element={<MakeGroup currentSize={1} baseUrl={baseUrl}/>}/>
           <Route exact path="/analysis" element={<Analysis/>}/>
           <Route path="/:id" element={<Room rooms={rooms} baseUrl={baseUrl}/>}/>
         </Routes>

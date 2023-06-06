@@ -10,7 +10,7 @@ const client = axios.create({
   baseURL: "https://climbr-fdd3e-default-rtdb.firebaseio.com/rooms.json"  
 });
 
-const MakeGroup = ({currentSize}) => {
+const MakeGroup = ({currentSize, baseUrl}) => {
   const [tasks, setTasks] = useState([]);
   //const [flag, setFlag] = useState(0);
   
@@ -21,7 +21,8 @@ const MakeGroup = ({currentSize}) => {
   }
 
   const i = (Math.random() + 1).toString(36).substring(5);
-  const publishGroup = () => {
+
+  const publishGroup = async () => {
     const newGroup = {
         id: i,
         name : document.getElementById("groupName").value,
@@ -31,6 +32,11 @@ const MakeGroup = ({currentSize}) => {
     }
     client.post("/", newGroup)
     .then((res) => {})
+
+
+    await fetch(`/create${baseUrl}/`, {
+      method: "PATCH",
+    }).catch((e) => console.log(e))
   }
 
 
