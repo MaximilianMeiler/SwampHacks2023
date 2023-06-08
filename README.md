@@ -3,13 +3,12 @@
 ## Project Summary
 A competitive goal-setting app with a fun twist.
 
-
 ## Installation instructions
 
-This application currently requires a local JSON server.
+1. Clone the repo and navigate to the folder in the terminal
+2. Here, run "npm install"
+3. Then, run "npm start" to start the app!
 
-1. Clone the repo
-2. "cd" into the src folder, run "npx json-server -p 3500 -w data.json"
-3. Open a new terminal instance, cd into the "Swamphacks2023" folder
-4. Here, run "npm install"
-5. Then, run "npm start" to start the app! If the json is hosted on a public server, other devices will also be able to access your groups.
+Note - the app is currently being migrated to an external backend.
+- The code for the api that connects the app and database can be found at https://github.com/MaximilianMeiler/ClimbrBackend.
+- However, the migration is currently not finished - only the main page has full functionality.
